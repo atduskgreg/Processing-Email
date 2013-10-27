@@ -38,9 +38,9 @@ class Email {
   String[] getRecipients() throws MessagingException, IOException{
     parsedMessage.getAllRecipients();
     Address[] addresses = parsedMessage.getAllRecipients();
-    // If we don't find any, look in the X-From header as well
+    // If we don't find any, look in the X-To header as well
     if(addresses == null){
-      return parsedMessage.getHeader("X-From");
+      return parsedMessage.getHeader("X-To");
     } else {
     String[] result = new String[addresses.length];
     for(int i = 0; i < addresses.length; i++){
